@@ -18,6 +18,3 @@ unsigned strlen_(const char *str);
 void strcat_(char *to, const char *from);
 int strstr_(const char *text, const char *pattern);
 
-
-
-

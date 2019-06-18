@@ -9,8 +9,8 @@ int main() {
 	
 	char text[] = "Hello";
 	char pattern[] = "l";
-	
-	cout << strstr_(text,pattern)<<endl;
+	strcat_(text, pattern);
+	cout << text<<endl;
 
 
 	cin.get();

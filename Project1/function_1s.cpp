@@ -110,13 +110,13 @@ unsigned strlen_(const char *str)
 }
 void strcat_(char *to, const char *from)
 {	
-	char *pto = to+strlen_(to);
+	to = to+strlen_(to);
 	do
 	{
-		*pto = *from;
-		pto++; from++;
-	} while (*pto!='\0');
-	pto = 0;
+		*to = *from;
+		to++; from++;
+	} while (*to!='\0');
+	//to = 0;
 }
 
 int strstr_(const char *text, const char *pattern)
