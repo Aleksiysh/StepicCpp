@@ -13,6 +13,10 @@ unsigned absolute(int x);
 //*STEP 2.4
 int *mymax(int *p, int *q);
 bool max_element(int *p, int *q, int *max);
+bool max_element(int *p, int *q, int **max);
+unsigned strlen_(const char *str);
+void strcat_(char *to, const char *from);
+int strstr_(const char *text, const char *pattern);
 
 
 

@@ -77,7 +77,7 @@ unsigned absolute(int x) {
 	else { return x; };
 }
 
-//*STEP 2.4
+//*STEP 2.4 работа с указателями
 int *mymax(int *p, int *q) {
 	int *max = p;
 	for (; p != q; p++) {
@@ -85,7 +85,6 @@ int *mymax(int *p, int *q) {
 	}
 	return max;
 }
-
 bool max_element(int *p, int *q, int *max) {
 	if (p == q) return false;
 	*max = *p;
@@ -93,4 +92,35 @@ bool max_element(int *p, int *q, int *max) {
 		if (*max < *p) *max = *p;
 	}
 	return true;
+}
+bool max_element(int *p, int *q, int **max) {
+	if (p == q) return false;
+	*max = p;
+	for (; p != q; p++) {
+		if (**max < *p) *max = p;
+	}
+	return true;
+} 
+
+unsigned strlen_(const char *str)
+{
+	unsigned res = 0;
+	for (; *(str+res) != '\0'; res++) ;
+	return res;
+}
+void strcat_(char *to, const char *from)
+{	
+	char *pto = to+strlen_(to);
+	do
+	{
+		*pto = *from;
+		pto++; from++;
+	} while (*pto!='\0');
+	pto = 0;
+}
+
+int strstr_(const char *text, const char *pattern)
+{
+	/* ... */
+	return 0;
 }
