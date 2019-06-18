@@ -107,29 +107,29 @@ bool max_element(int *p, int *q, int **max) {
 		if (**max < *p) *max = p;
 	}
 	return true;
-} 
+}
 
 unsigned strlen_(const char *str)
 {
 	unsigned res = 0;
-	for (; *(str+res) != '\0'; res++) ;
+	for (; *(str + res) != '\0'; res++);
 	return res;
 }
 void strcat_(char *to, const char *from)
-{	
-	to = to+strlen_(to);
+{
+	to = to + strlen_(to);
 	do
 	{
 		*to = *from;
 		to++; from++;
-	} while (*to!='\0');
+	} while (*to != '\0');
 	to = 0;
 }
 int strstr_(const char *text, const char *pattern)
 {
 	int lenText = strlen_(text);
 	int lenPattern = strlen_(pattern);
-	if (lenText == 0 || lenText<lenPattern) return -1;
+	if (lenText == 0 || lenText < lenPattern) return -1;
 	if (lenPattern == 0) return 0;
 	int res = -1;
 	int j = 0;
@@ -143,4 +143,36 @@ int strstr_(const char *text, const char *pattern)
 	}
 	return res;
 }
+char *resize(const char *str, unsigned size, unsigned new_size)
+{
+	char *new_arr = new char[new_size];
+	unsigned min_size = (size < new_size) ? size : new_size;
+	for (unsigned i = 0; i < min_size; i++) {
+		*(new_arr + i) = *(str + i);
+	}
+	delete[] str;
+	return new_arr;
+}
+char *getline()
+{
+	unsigned size = 1;
+	char *str = new char[size];
+	char c;
+	unsigned i = 0;
+	while (cin.get(c)) {
+		if (c != '\n') {
+			*(str + i) = c;
+			i++;
+		}
+		else 	break;
+		if (i == size - 1) {
+			size *= 2;
+			str = resize(str, size / 2, size);
+		}
+	}
+	*(str + i) = '\0';
+	return str;
+}
+
+
 

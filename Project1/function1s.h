@@ -20,4 +20,5 @@ bool max_element(int *p, int *q, int **max);
 unsigned strlen_(const char *str);
 void strcat_(char *to, const char *from);
 int strstr_(const char *text, const char *pattern);
-
+char *resize(const char *str, unsigned size, unsigned new_size);
+char *getline();
