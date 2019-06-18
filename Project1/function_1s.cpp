@@ -1,4 +1,5 @@
 #include <iostream>
+#include "function1s.h"
 using namespace std;
 
 void step1_8_12() {
@@ -54,10 +55,6 @@ void revers_print() {
 }
 
 //*STEP 2.3.10
-//void rotate(int a[], unsigned size, int shift);
-void revers(int a[], unsigned size);
-unsigned absolute(int x);
-
 void rotate(int a[], unsigned size, int shift) {
 	shift %= size;
 	if (shift == 0) {
@@ -78,4 +75,22 @@ void revers(int a[], unsigned size) {
 unsigned absolute(int x) {
 	if (x < 0) { return -x; }
 	else { return x; };
+}
+
+//*STEP 2.4
+int *mymax(int *p, int *q) {
+	int *max = p;
+	for (; p != q; p++) {
+		if (*max < *p) max = p;
+	}
+	return max;
+}
+
+bool max_element(int *p, int *q, int *max) {
+	if (p == q) return false;
+	*max = *p;
+	for (; p != q; p++) {
+		if (*max < *p) *max = *p;
+	}
+	return true;
 }

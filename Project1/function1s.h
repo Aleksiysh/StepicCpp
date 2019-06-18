@@ -8,7 +8,11 @@ void printArr(int a[], unsigned size);
 
 void rotate(int a[], unsigned size, int shift);
 void revers(int a[], unsigned size);
-//unsigned absolute(int x);
+unsigned absolute(int x);
+
+//*STEP 2.4
+int *mymax(int *p, int *q);
+bool max_element(int *p, int *q, int *max);
 
 
 
