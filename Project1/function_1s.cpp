@@ -2,12 +2,7 @@
 #include "function1s.h"
 using namespace std;
 //SWAP
-void swap_(int *a, int *b) {
-	int tmp = *a; *a = *b; *b = tmp;
-}
-void swap_(int &a, int &b) {
-	int tmp = a; a = b; b = tmp;
-}
+
 
 void step1_8_12() {
 	char c = '\0';
@@ -61,7 +56,7 @@ void revers_print() {
 	cout << a << " ";
 }
 
-//*STEP 2.3.10
+//*STEP 2.3.10 ”казатели
 void rotate(int a[], unsigned size, int shift) {
 	shift %= size;
 	if (shift == 0) {
@@ -84,7 +79,14 @@ unsigned absolute(int x) {
 	else { return x; };
 }
 
-//*STEP 2.4 работа с указател€ми
+//*STEP 2.4 —сылки и указатели
+void swap_(int *a, int *b) {
+	int tmp = *a; *a = *b; *b = tmp;
+}
+void swap_(int &a, int &b) {
+	int tmp = a; a = b; b = tmp;
+}
+
 int *mymax(int *p, int *q) {
 	int *max = p;
 	for (; p != q; p++) {
@@ -109,8 +111,8 @@ bool max_element(int *p, int *q, int **max) {
 	return true;
 }
 
-unsigned strlen_(const char *str)
-{
+//STEP 2.6 задачи
+unsigned strlen_(const char *str){
 	unsigned res = 0;
 	for (; *(str + res) != '\0'; res++);
 	return res;
