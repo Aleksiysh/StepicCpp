@@ -112,7 +112,7 @@ bool max_element(int *p, int *q, int **max) {
 }
 
 //STEP 2.6 задачи
-unsigned strlen_(const char *str){
+unsigned strlen_(const char *str) {
 	unsigned res = 0;
 	for (; *(str + res) != '\0'; res++);
 	return res;
@@ -174,6 +174,63 @@ char *getline()
 	}
 	*(str + i) = '\0';
 	return str;
+}
+
+//*STEP2.7 двумерный массив
+int ** creat_array2d_(size_t a, size_t b) {
+	int **m = new int *[a];
+	for (size_t i = 0; i != a; i++)
+		m[i] = new int[b];
+	return m;
+}
+void free_array2d_(int **m, size_t a, size_t b) {
+	for (size_t i = 0; i != a; i++)
+		delete[] m[i];
+	delete[] m;
+}
+int **create_array2d(unsigned a, unsigned b) {
+	int **m = new int*[a];
+	m[0] = new int[a*b];
+	for (size_t i = 1; i < a; i++)
+		m[i] = m[i - 1] + b;
+	return m;
+}
+void free_array2d(int **m) {
+	delete[] m[0];
+	delete[] m;
+}
+
+void print_array2d(int **m, unsigned a, unsigned b) {
+	for (size_t i = 0; i < a; i++) {
+		for (size_t j = 0; j < b; j++)
+			cout << m[i][j] << "\t";
+		cout << endl;
+	}
+}
+int ** transpose(const int * const * m, unsigned rows, unsigned cols)
+{
+	int **res = create_array2d(cols, rows);
+	for (size_t i = 0; i < cols; i++)
+		for (size_t j = 0; j < rows; j++)
+			res[i][j] = m[j][i];
+	return res;
+}
+void swap_min(int *m[], unsigned rows, unsigned cols)
+{
+	unsigned min_row = 0;
+	int min = m[0][0];
+	for (unsigned i = 0; i < rows; i++) {
+		for (unsigned j = 0; j < cols; j++) {
+			bool btmp = m[i][j] < min;
+			int itmp = m[i][j];
+			if (m[i][j] < min) {
+				min_row = i;
+				min = m[i][j];
+			}
+		}
+	}
+	for (unsigned j = 0; j < cols; j++)
+		swap_(m[0][j], m[min_row][j]);
 }
 
 

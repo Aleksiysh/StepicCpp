@@ -22,3 +22,11 @@ void strcat_(char *to, const char *from);
 int strstr_(const char *text, const char *pattern);
 char *resize(const char *str, unsigned size, unsigned new_size);
 char *getline();
+//*STEP2.7 двумерный массив
+int ** creat_array2d_(size_t a, size_t b);
+void free_array2d_(int **m, size_t a, size_t b);
+int ** create_array2d(unsigned a, unsigned b);
+void free_array2d(int **m);
+void print_array2d(int **m, unsigned a, unsigned b);
+int ** transpose(const int * const * m, unsigned rows, unsigned cols);
+void swap_min(int *m[], unsigned rows, unsigned cols);
