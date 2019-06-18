@@ -1,6 +1,13 @@
 #include <iostream>
 #include "function1s.h"
 using namespace std;
+//SWAP
+void swap_(int *a, int *b) {
+	int tmp = *a; *a = *b; *b = tmp;
+}
+void swap_(int &a, int &b) {
+	int tmp = a; a = b; b = tmp;
+}
 
 void step1_8_12() {
 	char c = '\0';
@@ -116,11 +123,24 @@ void strcat_(char *to, const char *from)
 		*to = *from;
 		to++; from++;
 	} while (*to!='\0');
-	//to = 0;
+	to = 0;
 }
-
 int strstr_(const char *text, const char *pattern)
 {
-	/* ... */
-	return 0;
+	int lenText = strlen_(text);
+	int lenPattern = strlen_(pattern);
+	if (lenText == 0 || lenText<lenPattern) return -1;
+	if (lenPattern == 0) return 0;
+	int res = -1;
+	int j = 0;
+	for (int i = 0; i <= lenText - lenPattern; i++) {
+		for (j = 0; j < lenPattern; j++) {
+			if (*(text + j + i) != *(pattern + j)) {
+				break;
+			}
+		}
+		if (j == lenPattern) return i;
+	}
+	return res;
 }
+

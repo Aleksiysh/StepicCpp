@@ -1,5 +1,8 @@
 #pragma once
 
+void swap_(int *a, int *b);
+void swap_(int &a, int &b);
+
 void step1_8_12();
 void step1_8_13();
 int gcd(int a, int b);

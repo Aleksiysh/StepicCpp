@@ -7,12 +7,12 @@ using namespace std;
 
 int main() {
 	
-	char text[] = "Hello";
-	char pattern[] = "l";
-	strcat_(text, pattern);
-	cout << text<<endl;
-
-
+	int a = 1, b = 6;
+	swap_(&a, &b);
+	cout << a<<" "<<b << endl;
+	swap(a, b);
+	cout << a << " " << b << endl;
+	
 	cin.get();
 	cout << "\nPress any Enter";
 	cin.get();
